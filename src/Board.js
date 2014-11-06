@@ -52,6 +52,9 @@
     },
 
     hasAnyQueensConflicts: function() {
+      if (this.get(0) === undefined) {
+        return false;
+      }
       return this.hasAnyRooksConflicts() || this.hasAnyMajorDiagonalConflicts() || this.hasAnyMinorDiagonalConflicts();
     },
 
@@ -190,7 +193,7 @@
       firstRow = firstRow || 0;
       var count = 0;
 
-      for (var i = 0; i <this.get(0).length; i++) {
+      for (var i = firstRow; i <this.get(0).length; i++) {
         if(colIdx >= 0) {
           if(this.get(i)[colIdx] === 1) {
             count++;
